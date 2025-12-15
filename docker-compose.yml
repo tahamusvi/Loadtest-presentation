@@ -1,0 +1,17 @@
+
+services:
+  lt-presentation:
+    container_name: lt-presentation
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    ports:
+      - "16222:80"
+    volumes:
+      - .:/app
+      - ./node_modules:/app/node_modules
+    env_file:
+      - .env
+    restart: unless-stopped
+
+
